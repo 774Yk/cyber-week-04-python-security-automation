@@ -1,0 +1,2 @@
+2026-11-25T20:00:00Z INFO simulated-login user=alice result=success
+2026-11-25T20:01:00Z WARN simulated-policy-check rule=SEC-001 result=pass

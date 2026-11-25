@@ -1,0 +1,24 @@
+name: Python Security Automation CI
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test-and-security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile and lint
+        run: make lint
+      - name: Tests
+        run: make test
+      - name: Offline safety checks
+        run: make security
+      - name: Secret scan
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,6 @@
+{
+  "application": "training-service",
+  "environment": "local",
+  "debug": false,
+  "owner": "portfolio-lab"
+}
